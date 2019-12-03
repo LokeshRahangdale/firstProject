@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if  object_list %}
+<table>
+    <tr>
+        <th colspan="8">Collage Details</th>
+    </tr>
+    <tr>
+        <th>Collage Name</th>
+        <th>Collage Image</th>
+        <th>Course</th>
+        <th>Male Student</th>
+        <th>Female Student</th>
+        <th>Total Student</th>
+        <th colspan="2">Action</th>
+    </tr>
+    {% for x in object_list %}
+        <tr>
+            <td>{{ x.col_name }}</td>
+            <td><img src="{{ x.image.url }}" width="100" height="100"></td>
+            <td>{{ x.course }}</td>
+            <td align="right">{{ x.m_student }}</td>
+            <td align="right">{{ x.f_student }}</td>
+            <td> {{ x.m_student|add:x.f_student}}</td>
+            <td>
+               <a href="/update{{ x.col_id }}/">
+                       Update
+                   </a>
+            </td>
+        <td>
+               <a href="/delete{{ x.col_id }}/">
+                       Delete
+                   </a>
+            </td>
+        </tr>
+
+    {% endfor %}
+</table>
+        {% else %}
+        <div class="container">
+        <h1>No Collage Record Found</h1>
+        </div>
+
+    {% endif %}
+{% endblock %}

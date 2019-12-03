@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Details Collage</title>
+    <link rel="stylesheet" type="text/css" href="{% static "style.css" %}"/>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+    <div class="title">
+        <img src="{% static 'image/header.png' %}" width="1000px">
+    </div>
+    <div class="container">
+        <div class="nav">
+            <ul>
+                <img class="left" src="{% static 'image/logo.png' %}" width="100" height="50">
+                <li><a href="{% url 'base' %}">Home</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="{% url 'viewall' %}">Collages</a></li>
+                <li><a href="{% url 'addcollage' %}">Register Collage</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+        </div>
+    <div class="w3-content w3-section" style="max-width:500px">
+  <img class="mySlides w3-animate-top" src="{% static 'image/index.png' %}" style="width:100%">
+  <img class="mySlides w3-animate-bottom" src="{% static 'image/index.png' %}" style="width:100%">
+  <img class="mySlides w3-animate-top" src="{% static 'image/index.png' %}" style="width:100%">
+  <img class="mySlides w3-animate-bottom" src="{% static 'image/index.png' %}" style="width:100%">
+</div>
+    <script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}
+  x[myIndex-1].style.display = "block";
+  setTimeout(carousel, 2500);
+}
+</script>
+        <div class="main">
+            {% block content %}
+
+            {% endblock %}
+        </div>
+    </div>
+</body>
+</html>

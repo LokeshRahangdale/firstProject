@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form method="post" enctype="multipart/form-data">
+
+        {% csrf_token %}
+        <table >
+            <tr>
+                <th colspan="2">Collage Registration</th>
+            </tr>
+            <tr>
+                <th>Collage ID</th>
+                <th>{{ form.col_id }}</th>
+            </tr>
+            <tr>
+                <th>Collage Name</th>
+                <th>{{ form.col_name }}</th>
+            </tr>
+            <tr>
+                <th>Course</th>
+                <th>{{ form.course }}</th>
+            </tr>
+            <tr>
+                <th>Male Student</th>
+                <th>{{ form.m_student }}</th>
+            </tr>
+            <tr>
+                <th>Female Student</th>
+                <th>{{ form.f_student }}</th>
+            </tr>
+            <tr>
+                <th>Collage Image</th>
+                <th>{{ form.image }}</th>
+            </tr>
+            <tr>
+                <th>
+                    Course
+                </th>
+                <th>
+                    <input type="checkbox" name="check" value="btech">B Tech<br>
+                    <input type="checkbox" name="check" value="mtech">M Tech<br>
+                    <input type="checkbox" name="check" value="mba">MBA<br>
+                    <input type="checkbox" name="check" value="mca">MCA<br>
+                    <input type="checkbox" name="check" value="mcm">MCM<br>
+                </th>
+
+            </tr>
+            <tr>
+                <th colspan="2"><button type="submit">Register</button></th>
+            </tr>
+        </table>
+{#       <input type="text" name="col_name" placeholder="Enter Collage Name" required><br><br>#}
+{#        <input type="text" name="course" placeholder="Course Name" required><br><br>#}
+{#        <input type="number" name="m_student" placeholder="No. Of M Student" max="60" min="20" required><br><br>#}
+{#        <input type="number" name="f_student" placeholder="No. Of F Student" max="60" min="20" required><br><br>#}
+
+    </form>
+{% endblock %}
